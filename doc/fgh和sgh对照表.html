@@ -1,0 +1,214 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>大数文档</title>
+    <script src="/js/technical/ExpantaNum.js"></script>
+    <script src="/js/technical/format_expantanum.js"></script>
+    <style>
+        body {
+            background: #000;
+            color: #fff;
+        }
+
+        * {
+            font-family: 'Courier New', Noto Sans SC, 'Source Han Sans', sans-serif;
+        }
+    </style>
+</head>
+<body>
+<h1>Symbol using</h1>
+<p>ΑΒΓΔΕΖ ΗΘΙΚΛΜ ΝΞΟΠΡΣ ΤΥΦΧΨΩ</p>
+<p>αβγδεζ ηθικλμ νξοπρσ τυφχψω</p>
+base 10
+<table border="1">
+    <thead>
+    <tr>
+        <th>BEAF</th>
+        <th>FGH</th>
+        <th>SGH</th>
+        <th>FGH function iteration</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+        <td>0</td>
+        <td></td>
+        <td>0</td>
+        <td>1</td>
+    </td>
+    <tr>
+        <td>n+1</td>
+        <td>0</td>
+        <td>ω+1</td>
+    </tr>
+    <tr>
+        <td>2n</td>
+        <td>1</td>
+        <td>ω2</td>
+    </tr>
+    <tr>
+        <td>n{2,n}</td>
+        <td>2</td>
+        <td>ω<sup>ω+1</sup></td>
+    </tr>
+    <tr>
+        <td>{n,5,2}</td>
+        <td>???</td>
+        <td>ω<sup>ω<sup>ω<sup>ω<sup>ω</sup></sup></sup></sup></td>
+    </tr>
+    <tr>
+        <td>{n,n,2}</td>
+        <td>???</td>
+        <td>ψ(Ω)</td>
+    </tr>
+    <tr>
+        <td>{n,2n,2}</td>
+        <td>???</td>
+        <td>ψ(Ω2)</td>
+    </tr>
+    <tr>
+        <td>{n,n<sup>2</sup>,2}</td>
+        <td>???</td>
+        <td>ψ(Ωω)</td>
+    </tr>
+    <tr>
+        <td>{n,n,3}</td>
+        <td>???</td>
+        <td>ψ(Ω<sup>2</sup>)</td>
+    </tr>
+    <tr>
+        <td>{n,n,10}</td>
+        <td>ω</td>
+        <td>ψ(Ω<sup>ω</sup>)</td>
+    </tr>
+    <tr>
+        <td>{n,n,1,2}</td>
+        <td>ω+1</td>
+        <td>ψ(Ω<sup>Ω</sup>)</td>
+    </tr>
+    <tr>
+        <td>{n,n,2,2}</td>
+        <td>ω+2</td>
+        <td>ψ(Ω<sup>Ω+1</sup>)</td>
+    </tr>
+    <tr>
+        <td>{n,n,n,2}</td>
+        <td>ω2</td>
+        <td>ψ(Ω<sup>Ω+ω</sup>)</td>
+    </tr>
+    <tr>
+        <td>{n,n,1,3}</td>
+        <td>ω2+1</td>
+        <td>ψ(Ω<sup>Ω2</sup>)</td>
+    </tr>
+    <tr>
+        <td>{n,n,n,3}</td>
+        <td>ω3</td>
+        <td>ψ(Ω<sup>Ω2+ω</sup>)</td>
+    </tr>
+    <tr>
+        <td>{n,n,n,n}</td>
+        <td>ω<sup>2</sup></td>
+        <td>ψ(Ω<sup>Ωω+ω</sup>)</td>
+    </tr>
+    <tr>
+        <td>{n,n,1,1,2}</td>
+        <td>ω<sup>2</sup>+1</td>
+        <td>ψ(Ω<sup>Ω<sup>2</sup></sup>)</td>
+    </tr>
+    <tr>
+        <td>{n,n,n,1,2}</td>
+        <td>ω<sup>2</sup>+ω</td>
+        <td>ψ(Ω<sup>Ω<sup>2</sup>+ω</sup>)</td>
+    </tr>
+    <tr>
+        <td>{n,n,1,2,2}</td>
+        <td>ω<sup>2</sup>+ω+1</td>
+        <td>ψ(Ω<sup>Ω<sup>2</sup>+Ω</sup>)</td>
+    </tr>
+    <tr>
+        <td>{n,n,n,2,2}</td>
+        <td>ω<sup>2</sup>+ω2</td>
+        <td>ψ(Ω<sup>Ω<sup>2</sup>+Ω+ω</sup>)</td>
+    </tr>
+    <tr>
+        <td>{n,n,n,2,2}</td>
+        <td>ω<sup>2</sup>+ω3</td>
+        <td>ψ(Ω<sup>Ω<sup>2</sup>+Ω2+ω</sup>)</td>
+    </tr>
+    <tr>
+        <td>{n,n,n,n,2}</td>
+        <td>ω<sup>2</sup>2</td>
+        <td>ψ(Ω<sup>Ω<sup>2</sup>+Ωω</sup>)</td>
+    </tr>
+    <tr>
+        <td>{n,n,n,n,n}</td>
+        <td>ω<sup>3</sup></td>
+        <td>ψ(Ω<sup>Ω<sup>2</sup>ω+Ωω+ω</sup>)</td>
+    </tr>
+    <tr>
+        <td>{n,n,1,1,1,2}</td>
+        <td>ω<sup>3</sup>+1</td>
+        <td>ψ(Ω<sup>Ω<sup>3</sup></sup>)</td>
+    </tr>
+    <tr>
+        <td>{n,n,n,n,n,n}</td>
+        <td>ω<sup>4</sup></td>
+        <td>ψ(Ω<sup>Ω<sup>3</sup>ω+Ω<sup>2</sup>ω+Ωω+ω</sup>)</td>
+    </tr>
+    <tr>
+        <td>{n,n+2(1)2}</td>
+        <td>ω<sup>ω</sup></td>
+        <td>ψ(Ω<sup>Ω<sup>ω</sup></sup>)=SVO</td>
+    </tr>
+    <tr>
+        <td>{n,n,2(1)2}</td>
+        <td>ω<sup>ω</sup>+1</td>
+        <td>ψ(Ω<sup>Ω<sup>Ω</sup></sup>)=LVO</td>
+    </tr>
+    <tr>
+        <td>{n,n,3(1)2}</td>
+        <td>ω<sup>ω</sup>+2</td>
+        <td>ψ(Ω<sup>Ω<sup>Ω</sup>+1</sup>)</td>
+    </tr>
+    <tr>
+        <td>{n,n,n(1)2}</td>
+        <td>ω<sup>ω</sup>+ω</td>
+        <td>ψ(Ω<sup>Ω<sup>Ω</sup>+ω</sup>)</td>
+    </tr>
+    <tr>
+        <td>{n,n,n,2(1)2}</td>
+        <td>ω<sup>ω</sup>+ω+1</td>
+        <td>ψ(Ω<sup>Ω<sup>Ω</sup>+Ω</sup>)</td>
+    </tr>
+    <tr>
+        <td>{n,n(1)3}</td>
+        <td>ω<sup>ω</sup>2</td>
+        <td>ψ(Ω<sup>Ω<sup>Ω</sup>+Ω<sup>ω</sup></sup>)</td>
+    </tr>
+    <tr>
+        <td>{n, n, ([1]1) 2}</td>
+        <td>ψ(Ω<sub>1</sub>)</td>
+        <td>ψ(Ω<sub>2</sub>)</td>
+    </tr>
+    <tr>
+        <td>{n, n, [1\1\2] 2}</td>
+        <td>ψ(Ω<sub>1</sub><sup>2</sup>)</td>
+        <td>???</td>
+    </tr>
+    <tr>
+        <td>???</td>
+        <td>ψ(Ω<sub>2</sub>)</td>
+        <td>ψ(Ω<sub>3</sub>)</td>
+    </tr>
+    <tr>
+        <td>???</td>
+        <td>ψ(Ω<sub>ω</sub>)</td>
+        <td>ψ(Ω<sub>ω</sub>)</td>
+    </tr>
+    </tbody>
+</table>
+
+</body>
+</html>
