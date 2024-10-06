@@ -1,0 +1,46 @@
+/* 导入基础文件 */
+@import "./basic.css";
+@import "./mm3.css";
+@import "./mm5.css";
+@import "./mm6.css";
+@import "./achi.css";
+@import "./animations.css";
+[efreygrt]{
+    background-image: url("/efreygrt.jpg");
+}
+
+.anormaly{
+    animation: anormaly 5s infinite;
+    
+}
+.usesticky {
+    position: sticky;
+    top: 0px;
+    z-index: 5;
+    background-color: rgba(14, 14, 14, 75%);
+    padding-top: 8px;
+}
+.usesticky_false{
+    padding-top: 8px;
+
+}
+
+.paralleluniverse{
+    z-index: 10;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+}
+
+.fakegoinfinite{
+    z-index: -1;
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100vw;
+    height: 100vh;
+    background: black;
+}

@@ -1,0 +1,146 @@
+
+@keyframes anormaly{
+    0%{
+        opacity: 0;
+    }
+    50%{
+        opacity: 0.02;
+    }
+    100%{
+        opacity: 0.00;
+    }
+}
+@keyframes bigcrunch{
+    0%, 100% {
+        transform: scale(1);
+        filter: blur(0);
+    }
+    50% {
+        transform: scale(0);
+        filter: blur(5px);
+    }
+}
+@keyframes a-game-header__antimatter--glow {
+    0% { color: #2196f3; }
+    33% { color: #673ab7; }
+    66% { color: #00bcd4; }
+    100% { color: #2196f3; }
+  }
+  
+  @keyframes corrupted_text {
+    0%,
+    100% {
+        text-shadow: -4px -4px 4px #5555ff, 4px 4px 4px #ff5555;
+        color: var(--color-text);
+    }
+
+    25% {
+        text-shadow: -4px 4px 4px #5555ff, 4px -4px 4px #ff5555;
+        color: #eeddff;
+    }
+
+    50% {
+        text-shadow: 4px 4px 4px #5555ff, -4px -4px 4px #ff5555;
+        color: var(--color-text);
+    }
+
+    75% {
+        text-shadow: 4px -4px 4px #5555ff, -4px 4px 4px #ff5555;
+        color: #ffddee;
+    }
+}
+@keyframes corrupted_box {
+    0%,
+    100% {
+        /*box-shadow: -4px -4px -4px #ff5555, -4px -4px 4px #5555ff, 4px 4px px #ff5555 inset, -4px -4px 4px #5555ff inset;*/
+        box-shadow: -4px -4px 4px #ff5555, 4px 4px 4px #5555ff;
+    }
+
+    25% {
+        box-shadow: 4px -4px 4px #ff5555, -4px 4px 4px #5555ff;
+    }
+
+    50% {
+        box-shadow: 4px 4px 4px #ff5555, -4px -4px 4px #5555ff;
+    }
+
+    75% {
+        box-shadow: -4px 4px 4px #ff5555, 4px -4px 4px #5555ff;
+    }
+}
+@keyframes quark_color {
+    0%,
+    100% {
+        color: #f77;
+    }
+
+    16.7% {
+        color: #f7f;
+    }
+
+    33.3% {
+        color: #77f;
+    }
+
+    50% {
+        color: #7ff;
+    }
+
+    66.7% {
+        color: #7f7;
+    }
+
+    83.3% {
+        color: #ff7;
+    }
+}
+@keyframes s_quark_color {
+    0%,
+    100% {
+        color: #f77;
+        text-shadow: 1px 1px 3px #f77, -1px -1px 3px #f77, 0 0 24px #f77;
+    }
+
+    16.7% {
+        color: #f7f;
+        text-shadow: 1px 1px 3px #f7f, -1px -1px 3px #f7f, 0 0 24px #f7f;
+    }
+
+    33.3% {
+        color: #77f;
+        text-shadow: 1px 1px 3px #77f, -1px -1px 3px #77f, 0 0 24px #77f;
+    }
+
+    50% {
+        color: #7ff;
+        text-shadow: 1px 1px 3px #7ff, -1px -1px 3px #7ff, 0 0 24px #7ff;
+    }
+
+    66.7% {
+        color: #7f7;
+        text-shadow: 1px 1px 3px #7f7, -1px -1px 3px #7f7, 0 0 24px #7f7;
+    }
+
+    83.3% {
+        color: #ff7;
+        text-shadow: 1px 1px 3px #ff7, -1px -1px 3px #ff7, 0 0 24px #ff7;
+    }
+}
+
+
+@keyframes a-existence-glow {
+    0% {
+        color: var(--color-text-inverted);
+        text-shadow: 0.1rem 0.1rem 0.2rem var(--color-text);
+    }
+
+    50% {
+        color: var(--color-text-inverted);
+        text-shadow: 0.1rem 0.1rem 0.8rem var(--color-text);
+    }
+
+    100% {
+        color: var(--color-text-inverted);
+        text-shadow: 0.1rem 0.1rem 0.2rem var(--color-text);
+    }
+}

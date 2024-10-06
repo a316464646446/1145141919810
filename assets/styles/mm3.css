@@ -1,0 +1,47 @@
+
+.mm3_chal {
+    width: 60px;
+    height: 60px;
+
+    border-width: 3px;
+    border-color: #000000;
+    border-style: dashed;
+}
+.mm3btn{
+    background-color: #440;
+    border-color: #880;
+}
+.mm3btn:hover{
+    background-color: #550;
+    border-color: #aa0;
+}
+.mm3btn[disabled]{
+    background-color: #220;
+    border-color: #440;
+}
+.mm3_chal_completed {
+    background-color: #00a000;
+}
+.mm3_chal:active {
+    background-color: #d0d0d0;
+    border-style: dashed;
+}
+.mm3_upg_buyable {
+    background: #aaa;
+}
+
+.mm3_upg_bought {
+    background: #550;
+}
+.mm3_upg,
+.mm3_upg_bought,
+.mm3_upg_buyable {
+    width: 40px;
+    height: 40px;
+    border: solid 2px #aa0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-size: 100% 100%;
+}

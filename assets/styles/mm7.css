@@ -1,0 +1,12 @@
+.mm7btn{
+    background-color: #004;
+    border-color: #008;
+}
+.mm7btn:hover{
+    background-color: #005;
+    border-color: #00a;
+}
+.mm7btn[disabled]{
+    background-color: #002;
+    border-color: #004;
+}

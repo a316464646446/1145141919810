@@ -1,0 +1,21 @@
+
+.achi {
+    border: solid 3px black;
+    background-size: contain;
+    width: 75px;
+    height: 75px;
+    background-color: gray;
+    border-radius: 10%;
+    padding: 5px;
+    color: white;
+    text-shadow: 0px 0px 12px black;
+    font-size: 12px;
+  }
+ .unlocked{
+    background-color: darkgreen
+  }
+  table{
+    margin: auto;
+  }
+
+  

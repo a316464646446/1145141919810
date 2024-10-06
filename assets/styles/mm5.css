@@ -1,0 +1,131 @@
+
+.mm5_upg_buyable {
+    background: #aaa;
+}
+
+.mm5_upg_bought {
+    background: #0aa;
+}
+.mm5_upg,
+.mm5_upg_bought,
+.mm5_upg_buyable {
+    width: 40px;
+    height: 40px;
+    border: solid 2px #0aa;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background-size: 100% 100%;
+}
+
+[mm5] > .btn{
+    
+    border: 1px solid #077;
+    background: #033;
+}
+[mm5] > .btn[disabled]{
+    
+    border: 1px solid #077;
+    background: #011;
+}
+.galaxy{
+    
+  border-radius: 20px;
+  display: block;
+  width: 300px;
+  margin: auto;
+  margin-top: 30px;
+  height: 300px;
+  text-align: center;
+  font-size: 16px;
+  background-size: cover;
+  background: #011;
+  cursor: pointer;
+  transition-duration: 0.2s;
+  border: solid #007f7f 2px;
+  text-shadow: 6px 6px 6px #007f7F;
+  color: white;
+}
+
+.upgBox, .upgBoxBuyable, .upgBoxBought{
+    width: 150px; 
+    height: 100px; 
+    background-color: #000; 
+    color: #fff; 
+    border: 1px solid rgb(0, 159, 159);
+    border-radius: 3px;
+    font-size: 13px;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    margin: auto; 
+    margin-top: 1.5rem;
+    margin: auto; 
+    margin-top: 1.5rem;
+    top: 0px;
+}
+.upgBoxBuyable{
+    background-color: #888;
+}
+.upgBoxBought{
+    background-color: rgb(0, 159, 159);
+}
+
+.mm5btn{
+    background-color: #044;
+    border-color: #088;
+}
+.mm5btn:hover{
+    background-color: #055;
+    border-color: #0aa;
+}
+.mm5btn[disabled]{
+    background-color: #022;
+    border-color: #044;
+}
+
+.mm5_chal {
+    width: 60px;
+    height: 60px;
+
+    border-width: 3px;
+    border-color: #007f7f;
+    border-style: dashed;
+}
+.mm5_chal_completed {
+    background-color: #00ffff;
+}
+.mm5_chal:active {
+    background-color: #d0d0d0;
+    border-style: dashed;
+}
+
+.rea{
+    width: 120px;
+    height: 120px;
+    background-color: #044;
+    color: #ffffff;
+    border: 2px solid #0aa;
+    border-radius: 3px;
+    font-size: 16px;
+    text-decoration: none;
+    cursor: pointer;
+}
+.rea_active{
+    background-color: #088;
+
+}
+.cmpbtn{
+    width: 150px;
+    height: 150px;
+}
+.rea:hover{
+    background-color: #066;
+    border: 2px solid #00c8c8;
+}
+
+.rea_active:hover{
+    background-color: #099;
+    border: 2px solid #00c8c8;
+}
