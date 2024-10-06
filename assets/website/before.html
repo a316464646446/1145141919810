@@ -1,0 +1,780 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>多维体积增量</title>
+
+        <link rel="stylesheet" href="../styles/before.css" />
+
+        <script src="../scripts/technical/ExpantaNum.js" defer></script>
+        <script src="../scripts/technical/format_expantanum.js" defer></script>
+        <script src="../scripts/technical/jquery-3.4.1.min.js" defer></script>
+
+        <script src="../scripts/newsticker.js" defer></script>
+        <script src="../scripts/sup_transfer.js" defer></script>
+        <script src="../scripts/save.js" defer></script>
+        <script src="../scripts/abcd.js" defer></script>
+        <script src="../scripts/display.js" defer></script>
+        <script src="../scripts/script.js" defer></script>
+        <script src="../scripts/mm3.js" defer></script>
+        <script src="../scripts/debug.js" defer></script>
+    </head>
+    <body lang="zh">
+        <!-- <p style="text-align: center;
+    color: white;
+    width: 90%;
+    top: 0px;
+    height: 20px;
+    border: solid 2px #222;
+    background-color: #171717;
+    padding-top: 4px;
+    padding-bottom: 4px;
+    font-size: 16px;
+    overflow: hidden;
+    display: flex;
+    align-items: center;
+transform: translateX(-176px); transition: transform 4.87s linear 0s;">如果你能看懂啊这段文字，说明新闻被人啊🤪～啊🤪～啊咦😬啊咦😬啊→啊↑啊↓😨啊😰～嗯💥哎哎🤗哎哦哎嗯😋～哦哎🥳爱爱爱爱爱😍了</p>
+-->
+        <div style="height: 900vw">
+            <div class="news">
+                <p id="newsText">来看看这是什么物业 78物业</p>
+                <br />
+            </div>
+            <div style="text-align: center" id="pts">
+                你有
+                <div class="pts-dis">114514 mm<sup>4</sup></div>
+                4维体积<br />
+            </div>
+            <p style="text-align: center">ρ = 1.000g/m<sup>4</sup></p>
+            <br />
+            <div style="text-align: center">
+                <button class="btn" onclick="main_option_ABCD.show(1)">
+                    体积
+                </button>
+                <button
+                    class="btn"
+                    onclick="main_option_ABCD.show(3)"
+                    style="display: none; background: #550"
+                    id="upgrade-button"
+                >
+                    升级
+                </button>
+                <button class="btn" onclick="main_option_ABCD.show(2)">
+                    选项
+                </button>
+                <button class="btn" onclick="main_option_ABCD.show(4)">
+                    成就
+                </button>
+            </div>
+
+            <div id="page1" style="text-align: center">
+                <button
+                    class="btn"
+                    onclick="(function(){if(player.volumes.lt(10)){player.volumes=E(10)}else{window.open('https://www.bilibili.com/video/BV1GJ411x7h7')}})()"
+                >
+                    出bug了？点击这个按钮
+                </button>
+                <p id="notice"></p>
+                <div></div>
+                <!-- <div id="space_maxt">
+
+            在 <span id="space_max"></span> 体积之后， 体积的增加会受到硬上限<button class="btn" onclick="upgrade_space_max()">提高硬上限位置 <span id="spacemax_levelup_need">(0/3)</span></button>
+            </div>-->
+                <div id="dim1">
+                    <span>维度1 </span><span id="d1">114514</span><span> x</span
+                    ><span id="dm1">1919810</span><span> </span>
+                    <button class="btn" id="dbtn1" onclick="buydim(1)">
+                        价格：114514
+                    </button>
+                </div>
+                <div id="dim2">
+                    <span>维度2 </span><span id="d2">114514</span><span> x</span
+                    ><span id="dm2">1919810</span><span> </span>
+                    <button class="btn" id="dbtn2" onclick="buydim(2)">
+                        价格：114514
+                    </button>
+                </div>
+                <div id="dim3">
+                    <span>维度3 </span><span id="d3">114514</span><span> x</span
+                    ><span id="dm3">eeeee1</span><span> </span>
+                    <button class="btn" id="dbtn3" onclick="buydim(3)">
+                        价格：eee100
+                    </button>
+                </div>
+                <div id="dim4">
+                    <span>维度4 </span><span id="d4">114514</span><span> x</span
+                    ><span id="dm4">1919810</span><span> </span>
+                    <button class="btn" id="dbtn4" onclick="buydim(4)">
+                        价格：eeee2
+                    </button>
+                </div>
+                <div id="dim5">
+                    <span>维度5 </span><span id="d5">114514</span><span> x</span
+                    ><span id="dm5">1919810</span><span> </span>
+                    <button class="btn" id="dbtn5" onclick="buydim(5)">
+                        价格：eeee11111111
+                    </button>
+                </div>
+                <div id="dim6">
+                    <span>维度6 </span><span id="d6">114514</span><span> x</span
+                    ><span id="dm6">1919810</span><span> </span>
+                    <button class="btn" id="dbtn6" onclick="buydim(6)">
+                        价格：eeeee234234
+                    </button>
+                </div>
+                <div id="dim7">
+                    <span>维度7 </span><span id="d7">114514</span><span> x</span
+                    ><span id="dm7">1919810</span><span> </span>
+                    <button class="btn" id="dbtn7" onclick="buydim(7)">
+                        价格：eeeeee9991154
+                    </button>
+                </div>
+                <div id="dim8">
+                    <span>维度8 </span><span id="d8">114514</span><span> x</span
+                    ><span id="dm8">1919810</span><span> </span>
+                    <button class="btn" id="dbtn8" onclick="buydim(8)">
+                        价格：10^^9
+                    </button>
+                </div>
+                <div>
+                    <button class="btn" onclick="dimensionBoost()">
+                        维度提升(<span id="d-boosts">0</span
+                        >/???)<br />重置之前的所有内容<br /><span
+                            id="boost-reward"
+                        ></span>
+                    </button>
+                </div>
+            </div>
+            <div id="page2" style="text-align: center">
+                <button onclick="suboption_ABCD.show(1)" class="btn">
+                    设置
+                </button>
+                <button onclick="suboption_ABCD.show(2)" class="btn">
+                    关于
+                </button>
+                <button onclick="suboption_ABCD.show(3)" class="btn">
+                    显示
+                </button>
+                <br /><br />
+                <div style="text-align: center" id="page2_save">
+                    <button class="btn" onclick="export_copy()">导出</button>
+                    <button class="btn" onclick="export_file()">
+                        导出为文件
+                    </button>
+                    <button class="btn" onclick="import_save()">导入</button>
+                    <button class="btn" onclick="import_file()">
+                        以文件导入
+                    </button>
+                    <br />
+                    <button class="btn" onclick="redeem()">兑换码？</button>
+                    <!--<button class="btn" onclick="window.open('saving_center.php')" id="saving_cent_btn">存档银行</button>
+    -->
+                    <button class="btn" onclick="formated_hard_reset()">
+                        <del>困难地</del>
+                        硬重置
+                    </button>
+                    <button
+                        class="btn"
+                        onclick='$("#music")[0].muted = 1-$("#music")[0].muted'
+                    >
+                        音乐
+                    </button>
+                </div>
+
+                <div style="text-align: center" id="page2_about">
+                    当前Endgame: <span to-format-4>1e50</span> 10 mm<sup>3</sup
+                    ><br />
+                    当前版本：v1.0.0-24-6-15-1-1<br />
+                    游戏作者：VeryrrDefine<br />
+                    本游戏使用了<a
+                        href="https://github.com/Naruyoko/ExpantaNum.js"
+                        target="_blank"
+                        >Naruyoko/ExpantaNum.js</a
+                    >
+                    <a
+                        href="https://github.com/cloudytheconqueror/letter-notation-format"
+                        target="_blank"
+                        >cloudytheconqueror/letter-notation-format</a
+                    >来处理大数字<br />
+
+                    <del>拿0100000000a7的游戏的CSS改的</del>
+                    <br />
+                    <del>绝对没有</del>
+                    <br />
+                    <h1>-----更新日志-----</h1>
+                    <div>
+                        <h3>v1.0.0-24-?-?? (计划)</h3>
+                        <p>语言更新</p>
+                    </div>
+                    <div>
+                        <h3>v1.0.0-24-6-16</h3>
+                        <p>移除菜单栏</p>
+                    </div>
+                    <div>
+                        <h3>v1.0.0-24-6-15-1-3</h3>
+                        <p>
+                            修复修复修复修复新闻不能显示的bug失败的bug失败的bug失败的bug
+                        </p>
+                    </div>
+                    <div>
+                        <h3>v1.0.0-24-6-15-1-2</h3>
+                        <p>修复修复修复新闻不能显示的bug失败的bug失败的bug</p>
+                    </div>
+                    <div>
+                        <h3>v1.0.0-24-6-15-1-1</h3>
+                        <p>修复修复新闻不能显示的bug失败的bug</p>
+                    </div>
+                    <div>
+                        <h3>v1.0.0-24-6-15-1</h3>
+                        <p>修复新闻不能显示的bug</p>
+                    </div>
+                    <div>
+                        <h3>v1.0.0-24-6-15</h3>
+                        <p>格式化代码</p>
+                        <p>严格化代码</p>
+                        <p>移除第五维度</p>
+                        <p>添加第三维度</p>
+                    </div>
+                    <div>
+                        <h3>v1.0.0-24-6-9-1</h3>
+                        <p>提高维度增加速度</p>
+                        <p>维度倍数设置为x2</p>
+                    </div>
+                    <div>
+                        <h3>v1.0.0-24-6-9</h3>
+                        <p>添加维度提升</p>
+                    </div>
+                    <div>
+                        <h3>v1.0.0</h3>
+                        <p>添加第五维度</p>
+                    </div>
+                    <div>
+                        <h3>v1.0.0-pre7</h3>
+                        <p>删除部分文件</p>
+                    </div>
+                    <div>
+                        <h3>v1.0.0-pre6</h3>
+                        <p>移除了存储硬上限</p>
+                        <p>修复了维度8显示114514的bug</p>
+                    </div>
+                    <div>
+                        <h3>v1.0.0-pre3~5</h3>
+                        <p>移除了黑洞吞噬</p>
+                    </div>
+                    <div>
+                        <h3>v1.0.0-pre2</h3>
+                        <p>语言测试</p>
+                        <p>添加了黑洞吞噬</p>
+                    </div>
+                </div>
+                <div style="text-align: center" id="page2_visual">
+                    <button class="btn" onclick="changeDisplayMode()">
+                        切换显示方式
+                    </button>
+                </div>
+            </div>
+            <div id="page3" style="text-align: center; background-color: #550">
+                <div>
+                    <p>
+                        你有<span id="page3_3dimension"></span> mm<sup>3</sup>
+                        3维空间，因此所有mm<sup>4</sup>体积收入x<span
+                            id="page3_mm4x"
+                        ></span>
+                    </p>
+                    <div>
+                        <button class="btn btn3" onclick="formatted_gainMM3()">
+                            达到<span to-format-4>1e30</span
+                            >以获取mm<sup>3</sup>体积
+                        </button>
+                    </div>
+                    <!--<table align="center" id="mm3-upg-table">
+                <tr>
+                    <td><div class="sq-upg-buy">1</div></td>
+                    <td><div class="sq-upg-buy">2</div></td>
+                    <td><div class="sq-upg-buy">3</div></td>
+                    <td><div class="sq-upg-buy">4</div></td>
+                    <td><div class="sq-upg-buy">5</div></td>
+                </tr>
+                <tr>
+                    <td><div class="sq-upg-buy">6</div></td>
+                    <td><div class="sq-upg-buy">7</div></td>
+                    <td><div class="sq-upg-buy">8</div></td>
+                    <td><div class="sq-upg-buy">9</div></td>
+                    <td><div class="sq-upg-buy">10</div></td>
+                </tr>
+            </table>-->
+
+                    <div>
+                        <span
+                            >升级1：每次mm<sup>3</sup>重置以1维度提升开始</span
+                        >
+                        <button
+                            class="btn3 btn"
+                            onclick="buyMM3Upgrade(1)"
+                            id="upgrade1"
+                        >
+                            价格：10 mm<sup>3</sup>
+                        </button>
+                    </div>
+                    <!--<div>
+                <button class="btn" onclick="gainMM6()">达到1.000e50 mm<sup>5</sup>以获取1 mm<sup>6</sup>体积</button>
+            </div>
+            <div>
+                <button class="btn" onclick="gainMM7()">达到1.000e25 mm<sup>6</sup>以获取1 mm<sup>7</sup>体积</button>
+            </div>
+            <div>
+                <button class="btn" onclick="gainMM8()">达到1.000e25 mm<sup>7</sup>以获取1 mm<sup>8</sup>体积</button>
+            </div>
+            你有<span id="_5-dimension-volumes">0</span> mm<sup>5</sup>5维体积<br>
+            你有0 mm<sup>6</sup>6维体积<br>
+            你有0 mm<sup>7</sup>7维体积<br>
+            你有0 mm<sup>8</sup>8维体积<br>
+
+            <span>升级1：维度1 倍数增加</span>
+            <button class="btn" onclick="buyUpgrade(1)">价格：<span to-format-4>7.98930938444449e63</span></button>
+            <br>
+
+            <span>升级2：维度2 倍数增加</span>
+            <button class="btn" onclick="buyUpgrade(2)">价格：<span to-format-5>1</span></button>
+            <br>
+
+            <span>升级3：维度3 倍数增加</span>
+            <button class="btn" onclick="buyUpgrade(3)">价格：<span to-format-5>10</span></button>
+            <br>
+
+             <span>升级<span class="corrupted">???：Super Boosting!</span></span>
+            <button class="btn corrupted" onclick="buyUpgrade(114514)">价格：???</button><br>
+
+            <span>升级<span class="corrupted">???：Hyper Boosting!</span></span>
+            <button class="btn corrupted" onclick="buyUpgrade(114515)">价格：???</button><br>-->
+                </div>
+            </div>
+            <div id="page4" style="text-align: center">
+                <div>
+                    <p>成就分为普通成就和秘密成就，</p>
+                    <p>有一些普通成就会有增益效果。</p>
+                    <br />
+                    <p>秘密成就不会告诉你如何获得，</p>
+                    <p>他们通常以彩色标识，</p>
+                    <p>有一些秘密成就也会藏在普通成就之下。</p>
+                    <!-- 抽到什么呢？<br>
+            <p>2%: ee2.000 mm<sup>4</sup>体积 且 取消存储硬上限</p>
+            <button onclick="randomGain()" class="btn">抽</button>-->
+                    <table id="achieves">
+                        <tr>
+                            <td>
+                                <button class="achieve">
+                                    在哪里开始?<br />
+                                    达到100
+                                </button>
+                            </td>
+                            <td>
+                                <button class="achieve">
+                                    1 四次方千米<br />
+                                    达到<span to-format-4>1e24</span>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="achieve-secret">
+                                    输入achieve有惊喜<br />
+                                </button>
+                            </td>
+                            <td>
+                                <button class="achieve-secret">
+                                    第九维度<br />
+                                </button>
+                            </td>
+                            <td>
+                                <button class="achieve">
+                                    g<sub>ε<sub>0</sub></sub
+                                    >(3)<br />
+                                    超越<span to-format-4>7625597484987</span>
+                                </button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="achieve">
+                                    <br />
+                                </button>
+                            </td>
+                            <td>
+                                <button class="achieve">
+                                    <br />
+                                </button>
+                            </td>
+                            <td>
+                                <button class="achieve">
+                                    <br />
+                                </button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="achieve">
+                                    <br />
+                                </button>
+                            </td>
+                            <td>
+                                <button class="achieve">
+                                    <br />
+                                </button>
+                            </td>
+                            <td>
+                                <button class="achieve">
+                                    <br />
+                                </button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="achieve">
+                                    <br />
+                                </button>
+                            </td>
+                            <td>
+                                <button class="achieve">
+                                    <br />
+                                </button>
+                            </td>
+                            <td>
+                                <button class="achieve">
+                                    <br />
+                                </button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="achieve">
+                                    <br />
+                                </button>
+                            </td>
+                            <td>
+                                <button class="achieve">
+                                    <br />
+                                </button>
+                            </td>
+                            <td>
+                                <button class="achieve">
+                                    <br />
+                                </button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="achieve">
+                                    <br />
+                                </button>
+                            </td>
+                            <td>
+                                <button class="achieve">
+                                    <br />
+                                </button>
+                            </td>
+                            <td>
+                                <button class="achieve">
+                                    <br />
+                                </button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="achieve">
+                                    <br />
+                                </button>
+                            </td>
+                            <td>
+                                <button class="achieve">
+                                    <br />
+                                </button>
+                            </td>
+                            <td>
+                                <button class="achieve">
+                                    <br />
+                                </button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="achieve">
+                                    <br />
+                                </button>
+                            </td>
+                            <td>
+                                <button class="achieve">
+                                    <br />
+                                </button>
+                            </td>
+                            <td>
+                                <button class="achieve">
+                                    <br />
+                                </button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>
+                                <button class="achieve">
+                                    <br />
+                                </button>
+                            </td>
+                            <td>
+                                <button class="achieve">
+                                    <br />
+                                </button>
+                            </td>
+                            <td>
+                                <button class="achieve">
+                                    <br />
+                                </button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                            <td>
+                                <button class="achieve">6<br /></button>
+                            </td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+        <dialog data-modal class="dialog">
+            <div id="dialog-place"></div>
+            <button class="btn" data-ok-modal>关闭</button>
+            <button
+                class="btn"
+                data-close-modal
+                onclick="$('.dialog')[0].close();"
+            >
+                取消
+            </button>
+        </dialog>
+        <br /><br />
+        <div id="dim9">
+            <span>维度9 </span><span>0</span><span> x</span
+            ><span id="dm9">0</span><span> </span>
+            <button class="btn" onclick="buydim(9)">价格：0</button>
+        </div>
+        <div id="dim10">
+            <span
+                >维度啊～啊～啊咦～啊咦～啊→啊↑啊↓～啊～嗯～哎哎～哎哦哎嗯～哦哎～爱爱爱爱爱 </span
+            ><span id="d9">0</span><span> x</span><span>0</span><span> </span>
+            <button class="btn" onclick="">
+                价格：<span to-format-4>1e2085</span>
+            </button>
+        </div>
+        <script></script>
+        <div>
+            <div>
+                <div>
+                    <div>
+                        <div>
+                            <div>
+                                <div>
+                                    <!--
+To lowiro(616)Corporation: :
+
+Today is the second day of update 4.0.0 for Arcaea,and we were shocked to learn of the death of Tairitsu in the plot,but we were even more surprised to learn that the character Tairitsu in the game were basically gone (except for the CHUNITHM and TONE SPHERE interlock opposites).
+
+I just want to say that Fatalis Hikari is very great, we can understand that for story reasons,Tairitsu and Hikari have to be left in the world , but we don't want to lose Tairitsu of switching characters.
+
+Some QQ friends “say hello”to yours:
+“616 do you know? I shoot 114514 shots at Tairitsu every day. Without her, who will I shoot at?!”(Chinese:616你知道吗？我每天对着对立导114514发，没了对立我以后对着谁导？！)
+“In the name of Tairitsu, I burn your company,lowiro.”(Chinese:以对立之名义，吾烧你公司)
+
+There are also people who speak the truth after losing Tairitsu(Although this person doesn't have much affection for Tairitsu):
+“Why, obviously I prefer Hikari ah, why would Tairitsu want to kill Hikari when she was killed back,I was so sad if lost, as if lost something important...”
+I'm not a very important person, but I have a question for the people on your Arcaea production team:
+When will we see Tairitsu?
+
+Tairitsu and Hikari, they can meet again, and, never separate.....
+                                                                          臻爅
+
+-->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
