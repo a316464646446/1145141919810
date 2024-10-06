@@ -1,0 +1,11 @@
+
+.saves {
+    width: 90%;
+    padding: 7px 25px;
+    text-decoration: none;
+    border: 1px solid #777;
+    background: #333;
+    font-family: 'Noto Sans SC', sans-serif;
+    color: white;
+    display: inline-block;
+  }
