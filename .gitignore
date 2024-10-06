@@ -1,0 +1,14 @@
+HyperVolumeIncremental-v1.0.0-NonVue.zip
+*.php
+.idea/*
+test*
+the large-scale documentary.txt
+redactedList.txt
+0i000000*
+
+#studying
+
+*.java
+*.bat
+*.class
+*.bak
